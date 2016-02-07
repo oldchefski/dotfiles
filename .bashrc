@@ -39,10 +39,3 @@ alias sysupdate='sudo apt-get update && sudo apt-get upgrade'
 alias fucku='sudo $(history -p !!)'
 alias canhaz='sudo apt-get install'
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
-
-## Expensify Aliases ##
-alias gp='git push origin `git rev-parse --abbrev-ref HEAD | sed '\''s/master/DONT_PUSH_MASTER_IDIOT/'\''`'
-alias nb='git checkout master && git pull origin master && git checkout -b'
-alias sshtun='ssh -At -t bastion1.sc ssh -A'
-alias sshbas='ssh bastion1.sc'
-alias sshlog='sshtun log1.lv'
