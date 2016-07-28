@@ -1,0 +1,5 @@
+[user]
+	name = Bill Olszewski
+	email = bill@expensify.com
+[core]
+	editor = vim
