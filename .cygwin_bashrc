@@ -1,0 +1,42 @@
+# If not running interactively, don't do anything
+[[ "$-" != *i* ]] && return
+
+### Shell Options ###
+#
+# See man bash for more options...
+
+## Dynamic Resizing
+shopt -s checkwinsize
+
+## Use case-insensitive filename globbing
+shopt -s nocaseglob
+
+## When changing directory small typos can be ignored by bash
+# for example, cd /vr/lgo/apaache would find /var/log/apache
+shopt -s cdspell
+
+## Set up prompt
+tty -s && export PS1="\[\033[38;5;10m\][\[$(tput sgr0)\]\[\033[38;5;13m\]\u\[$(tput sgr0)\]\[\033[38;5;10m\]@\[$(tput sgr0)\]\[\033[38;5;13m\]\h\[$(tput sgr0)\]\[\033[38;5;10m\]]\[$(tput sgr0)\]\[\033[38;5;15m\]: \[$(tput sgr0)\]\[\033[38;5;11m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\] \\$ \[$(tput sgr0)\]"
+
+## Add color
+export GREP_OPTIONS='--color=auto'
+eval `dircolors -b`
+
+## OS Aliases
+alias cls='clear'
+alias clls='clear; ls'
+alias ls='ls --color=auto'
+alias ll='ls -lh'
+alias lla='ls -alh'
+alias lsa='ls -A'
+alias lsg='ls | grep'
+alias vi='vim'
+alias sysupdate='sudo apt-get update && sudo apt-get upgrade'
+alias fucku='sudo $(history -p !!)'
+alias canhaz='sudo apt-get install'
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias nc='ncat'
+
+## Github aliases
+alias gp='git push origin `git rev-parse --abbrev-ref HEAD | sed '\''s/master/DONT_PUSH_MASTER_IDIOT/'\''`'
+alias nb='git checkout master && git pull origin master && git checkout -b'
